@@ -1,0 +1,78 @@
+I want to make a simple compression program that
+takes stdin and sends it to a compressed file.
+
+There are a few classes I think I need.
+
+[1] HuffmanNode
+	[a] Contains two HuffmanNode members,
+	    one for each side.
+
+	    Also, it contains a CharUInt pair.
+	    This pair holds a character and a 
+	    frequency of the character.
+
+	[b] HuffmanNodes hold a frequency. Every
+	    parent Huffman node has a frequency
+	    that is the sum of both children.
+
+	    Non-leaf nodes should not hold
+	    anything aside from the '' emptychar.
+
+	[c] A complete Huffman tree is built from
+	    the leaves up. 
+
+	[d] Constructor for parents: take two
+	    Huffman nodes, add their frequencies.
+
+	[e] For standard nodes, either take a 
+	    frequency and a character, or a
+	    Struct.
+
+[2] HuffmanDict
+	[a] A Huffman dict holds HuffmanStructs,
+	    and is not ordered or sorted.
+	
+	[b] You can index a Huffman set with a 
+	    character, this returns its freq.
+	    or allocates a slot for that
+	    character if it does not exist.
+
+[3] SortedArray
+	[a] Sorted array holds its elements in
+	    order and automatically expands.
+
+	[b] Insertion occurs in order.
+
+[4] hzip.cpp -- Main file
+	[a] Read std input and either put into a
+	    string or string stream.
+
+	[b] declare a new HuffmanDict
+	    for char c in string:
+		if c not in dict
+			add c to dict
+		++dict[c]
+
+	[c] declare new SortedArray
+	    for d in dict
+	    	convert d to HuffmanNode
+	    	add d to SortedArray
+
+	[d] while (array.size > 1)
+	    	remove last two elements
+		merge last two elements 
+		insert new element
+	
+	[e] traverse tree and place char, path
+	    pairs into dict
+
+	[f] open new file from name supplied by
+	    user
+
+	[g] for char c in string
+		dict[c] >1
+
+	[h] close out file
+
+	[i] output dict encoding in .enc file
+
