@@ -1,3 +1,3 @@
 # Huffman
-C++ implementation of Huffman compression algorithm
-Currently unfinished
+C++ implementation of Huffman compression algorithm.<BR>
+Currently unfinished.
